@@ -184,3 +184,19 @@
     border: 1px #ccc solid;
     border-radius: 5px;
 }
+.top10 img{
+    width: 20%;
+    height: 50px;
+    float: left;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 1px #ccc solid;
+}
+.top10 a{
+    color: #666;
+    text-decoration: none;
+}
+.top10 a:hover{
+    color: #000;
+    text-decoration: underline;
+}
