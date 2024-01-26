@@ -207,6 +207,7 @@
     color: #000;
     text-decoration: underline;
 }
+/*Admin*/
 .headeradmin{
     background-color: #eee;
     border:1px #090 solid;
@@ -223,4 +224,32 @@
     color: #666;
     border-radius:5px ;
     padding: 0 20px;
+}
+.frmcontent{
+    padding: 20px 0px;
+}
+.frmdsloai table{
+    width: 100%;
+    padding: 20px;
+    border-collapse:collapse ;
+}
+.frmdsloai table th:nth-child(1){
+    width: 10%;
+    background-color: #ccc;
+}
+.frmdsloai table th:nth-child(2){
+    width: 30%;
+    background-color: #ccc;
+}
+.frmdsloai table th:nth-child(3){
+    width: 40%;
+    background-color: #ccc;
+}
+.frmdsloai table th:nth-child(4){
+    width: 20%;
+    background-color: #ccc;
+}
+.frmdsloai table td{
+    padding: 10px 20px;
+    border: 1px #ccc solid;
 }
