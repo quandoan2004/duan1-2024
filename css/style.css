@@ -133,7 +133,8 @@
 }
 
 .formtaikhoan input[type="text"],
-.formtaikhoan input[type="password"]{
+.formtaikhoan input[type="password"],
+.frmcontent input[type="text"]{
     width: 100%;
     border: 1px #ccc solid;
     padding: 5px 10px;
@@ -142,13 +143,19 @@
 .formtaikhoan input[type="checkbox"]{
     border-radius: 5px;
 }
-.formtaikhoan input[type="submit"]{
+.formtaikhoan input[type="submit"],
+.frmcontent input[type="submit"],
+.frmcontent input[type="reset"],
+.frmcontent input[type="button"]{
     border-radius: 5px;
     padding: 5px 10px;
     background-color: white;
     border: 1px #ccc solid;
 }
-.formtaikhoan input[type="submit"]:hover{
+.formtaikhoan input[type="submit"]:hover,
+.frmcontent input[type="submit"]:hover,
+.frmcontent input[type="reset"]:hover,
+.frmcontent input[type="button"]:hover{
     background-color: #ccc;
 }
 .formtaikhoan li a{
@@ -199,4 +206,21 @@
 .top10 a:hover{
     color: #000;
     text-decoration: underline;
+}
+.headeradmin{
+    background-color: #eee;
+    border:1px #090 solid;
+    color: #666;
+    border-radius:5px ;
+    padding: 0 20px;
+}
+.headeradmin h1{
+    font-size: 2vw;
+}
+.frmtitle{
+    background-color: #eee;
+    border:1px #090 solid;
+    color: #666;
+    border-radius:5px ;
+    padding: 0 20px;
 }
