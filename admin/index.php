@@ -14,8 +14,10 @@ if (isset($_GET['act'])) {
             }
             include "danhmuc/add.php";
             break;
-        case 'addsp':
-            include "sanpham/add.php";
+        case 'lisdm':
+            $spl="select * from danhmuc order by name";
+            $listdanhmuc = pdo_query($spl);
+            include "danhmuc/list.php";
             break;
         default:
             include "home.php";
