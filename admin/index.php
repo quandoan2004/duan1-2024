@@ -40,7 +40,7 @@ if (isset($_GET['act'])) {
                     update_danhmuc($id,$tenloai);
                     $thongbao="Cập nhật thành công";
                 }
-                $listdanhmuc=loadall_danhmuc($sql);
+                $listdanhmuc=loadall_danhmuc();
                 include "danhmuc/list.php";
                 break;
             /* controller sản phẩm */  
@@ -68,7 +68,15 @@ if (isset($_GET['act'])) {
                 include "sanpham/add.php";
                 break;
             case 'listsp':
-                $listsanpham=loadall_sanpham();
+                if(isset($_POST['listok'])&&($_POST['listok'])){
+                    $kyw=$_POST['kyw'];
+                    $iddm=$_POST['iddm'];
+                }else{
+                    $kyw='';
+                    $iddm=0;
+                }
+                $listdanhmuc=loadall_danhmuc();
+                $listsanpham=loadall_sanpham($kyw,$iddm);
                 include "sanpham/list.php";
                 break;
             case 'xoasp':
