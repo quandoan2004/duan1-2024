@@ -1,6 +1,6 @@
 <?php
-    function insert_sanpham($tenloai){
-        $sql="insert into sanpham(name) values('$tenloai')";
+    function insert_sanpham($tensp,$giasp,$hinh,$mota,$iddm){
+        $sql="insert into sanpham(name,price,img,mota,iddm) values('$tensp','$giasp','$hinh','$mota','$iddm')";
         pdo_execute($sql);
     }
     function delete_sanpham($id){

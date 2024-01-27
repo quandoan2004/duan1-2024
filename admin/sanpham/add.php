@@ -5,8 +5,15 @@
             <div class="row frmcontent">
                 <form action="index.php?act=addsp" method="post" enctype="multipart/form-data">
                     <div class="row mb10">
-                        Mã sản phẩm <br>
-                        <input type="text" name="masp" disabled>
+                        Danh mục <br>
+                        <select name="iddm">
+                            <?php
+                                foreach($listdanhmuc as $danhmuc){
+                                    extract($danhmuc);
+                                    echo '<option value="'.$id.'">'.$name.'</option>';
+                                }
+                            ?>                       
+                        </select>
                     </div>
                     <div class="row mb10">
                         Tên sản phẩm <br>
@@ -18,7 +25,7 @@
                     </div>
                     <div class="row mb10">
                         Hình <br>
-                        <input type="text" name="hinh" >
+                        <input type="file" name="hinh" >
                     </div>
                     <div class="row mb10">
                         Mô tả<br>
