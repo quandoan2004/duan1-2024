@@ -23,7 +23,7 @@ if (isset($_GET['act'])) {
                 if(isset($_GET['id'])&&($_GET['id']>0)){
                     delete_danhmuc($_GET['id']);
                 }
-                $listdanhmuc=loadall_danhmuc();
+                $listdanhmuc=loadall_danhmuc("",0);
                 include "danhmuc/list.php";
                 break;
         case 'suadm':
@@ -83,25 +83,38 @@ if (isset($_GET['act'])) {
                     if(isset($_GET['id'])&&($_GET['id']>0)){
                         delete_sanpham($_GET['id']);
                     }
-                    $listsanpham=loadall_sanpham();
+                    $listsanpham=loadall_sanpham("",0);
                     include "sanpham/list.php";
                     break;
             case 'suasp':
                     if(isset($_GET['id'])&&($_GET['id']>0)){
-                        $dm = loadone_sanpham($_GET['id']);
+                        $sanpham = loadone_sanpham($_GET['id']);
     
                     }
+                    $listdanhmuc=loadall_danhmuc();
                     include "sanpham/update.php";
                     break;
             case 'updatesp':
-                    if(isset($_POST['capnhat'])&&($_POST['capnhat']>0)){
-                        $tenloai=$_POST['tenloai'];
-                        $id=$_POST['id'];
-                        update_danhmuc($id,$tenloai);
+                    if(isset($_POST['capnhat'])&&($_POST['capnhat'])){
+                    $id=$_POST['id'];
+                    $iddm=$_POST['iddm'];
+                    $tensp=$_POST['tensp'];
+                    $giasp=$_POST['giasp'];
+                    $mota=$_POST['mota'];
+                    $hinh=$_FILES['hinh']['name'];
+                    $target_dir = '../upload/';
+                    $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                    if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)){
+                        
+                    }else{
+
+                    }
+                        update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh);
                         $thongbao="Cập nhật thành công";
                     }
-                    $listdanhmuc=loadall_danhmuc($sql);
-                    include "danhmuc/list.php";
+                    $listdanhmuc=loadall_danhmuc();
+                    $listsanpham=loadall_sanpham("",0);
+                    include "sanpham/list.php";
                     break;    
             
             
