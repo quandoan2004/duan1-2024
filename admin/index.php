@@ -1,5 +1,6 @@
 <?php
 include "../Model/pdo.php";
+include "../Model/danhmuc.php";
 include "header.php";
 
 if (isset($_GET['act'])) {
@@ -8,30 +9,25 @@ if (isset($_GET['act'])) {
         case 'adddm':
             if(isset($_POST['themmoi'])&&($_POST['themmoi'])){
                 $tenloai=$_POST['tenloai'];
-                $spl="insert into danhmuc(name) values('$tenloai')";
-                pdo_execute($spl);
+                insert_danhmuc($tenloai);
                 $thongbao="Thêm thành công";
             }
             include "danhmuc/add.php";
             break;
         case 'lisdm':
-            $spl="select * from danhmuc order by id desc";
-            $listdanhmuc = pdo_query($spl);
+            $listdanhmuc=loadall_danhmuc();
             include "danhmuc/list.php";
             break;
         case 'xoadm':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
-                    $spl= "delete  from danhmuc where id=".$_GET['id'];
-                    pdo_execute($spl);
+                    delete_danhmuc($_GET['id']);
                 }
-                $spl="select * from danhmuc order by id desc";
-                $listdanhmuc=pdo_query($spl);
+                $listdanhmuc=loadall_danhmuc();
                 include "danhmuc/list.php";
                 break;
         case 'suadm':
                 if(isset($_GET['id'])&&($_GET['id']>0)){
-                    $spl="select * from danhmuc where id=".$_GET['id'];
-                    $dm=pdo_query_one($spl);
+                    $dm = loadone_danhmuc($_GET['id']);
 
                 }
                 include "danhmuc/update.php";
@@ -40,12 +36,11 @@ if (isset($_GET['act'])) {
                 if(isset($_POST['capnhat'])&&($_POST['capnhat']>0)){
                     $tenloai=$_POST['tenloai'];
                     $id=$_POST['id'];
-                    $spl="update danhmuc set name='".$tenloai."' where id = ".$id;
-                    pdo_execute($spl);
+                    update_danhmuc($id,$tenloai);
                     $thongbao="Cập nhật thành công";
                 }
-                $spl="select * from danhmuc order by id desc";
-                $listdanhmuc=pdo_query($spl);
+                $sql="select * from danhmuc order by id desc";
+                $listdanhmuc=loadall_danhmuc($sql);
                 include "danhmuc/list.php";
                 break;
             default:

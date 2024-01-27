@@ -1,33 +1,24 @@
 <?php
-    function them_danhmuc($tenloai){
-        $sql = "INSERT INTO danhmuc(name) VALUES ('".$tenloai."')";
+    function insert_danhmuc($tenloai){
+        $sql="insert into danhmuc(name) values('$tenloai')";
         pdo_execute($sql);
     }
-
-    function xoa_danhmuc($id){
-        $sql = "DELETE FROM danhmuc WHERE id = $id";
-        pdo_query($sql);
+    function delete_danhmuc($id){
+        $sql= "delete  from danhmuc where id=".$id;
+        pdo_execute($sql);
     }
-
-    function loadall(){
-        $sql = "SELECT * FROM danhmuc order by id DESC";
-        $danhsach = pdo_query($sql);
-        return $danhsach;
-    }   
-
-    function loadone($id){
-        if($id > 0){
-            $sql = "SELECT * FROM danhmuc WHERE id = $id";
-            $danhmuc = pdo_query($sql);
-            return $danhmuc;
-        } else {
-            return "";
-        }
+    function loadall_danhmuc(){
+        $sql="select * from danhmuc order by id desc";
+        $listdanhmuc = pdo_query($sql);
+        return $listdanhmuc;
     }
-
-    function capnhat_danhmuc($tenloai, $id){
-        $sql = "UPDATE danhmuc SET name = '".$tenloai."' WHERE id = $id";
-        pdo_query($sql);
+    function loadone_danhmuc($id){
+        $sql="select * from danhmuc where id=".$id;
+        $dm=pdo_query_one($sql);
+        return $dm ;
     }
-
+    function update_danhmuc($id,$tenloai){
+        $sql="update danhmuc set name='".$tenloai."' where id = ".$id;
+        pdo_execute($sql);
+    }
 ?>
