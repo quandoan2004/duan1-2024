@@ -113,7 +113,7 @@ if (isset($_GET['act'])) {
                         $thongbao="Cập nhật thành công";
                     }
                     $listdanhmuc=loadall_danhmuc();
-                    $listsanpham=loadall_sanpham("",0);
+                    $listsanpham=loadall_sanpham();
                     include "sanpham/list.php";
                     break;    
             

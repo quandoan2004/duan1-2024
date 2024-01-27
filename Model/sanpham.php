@@ -7,7 +7,7 @@
         $sql= "delete  from sanpham where id=".$id;
         pdo_execute($sql);
     }
-    function loadall_sanpham($kyw,$iddm){
+    function loadall_sanpham($kyw="",$iddm=0){
         $sql="select * from sanpham where 1";
         if($kyw!=""){
             $sql.=" and name like '%".$kyw."%'";
