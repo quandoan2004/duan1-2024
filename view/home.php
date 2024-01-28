@@ -3,14 +3,14 @@
                 <div class="row">
                     <div class="banner">
                         <!-- Slideshow container -->
-<div class="slideshow-container">
+            <div class="slideshow-container">
 
 <!-- Full-width images with number and caption text -->
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="view/images/bannner1.jpg" style="width:100%">
-  <div class="text">Caption Text</div>
-</div>
+            <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img src="view/images/bannner1.jpg" style="width:100%">
+            <div class="text">Caption Text</div>
+            </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
@@ -44,6 +44,7 @@
                         $i=0;
                         foreach ($spnew as $sp) {
                             extract($sp);
+                            $linksp="index.php?act=sanphamct&idsp=".$id;
                             $hinh=$img_path.$img;
                             if(($i==2)||($i==5)||($i==8)){   
                                 $mr="mr";
@@ -51,9 +52,9 @@
                                 $mr="";
                             }
                             echo '<div class="boxsp '.$mr.'">
-                            <div class="row img"><img src="'.$hinh.'" alt=""></div>
+                            <div class="row img"><a href="'.$linksp.'"><img src="'.$hinh.'" alt=""></a></div>
                             <p>$'.$price.'</p>
-                            <a href="#">'.$name.'</a>
+                            <a href="'.$linksp.'">'.$name.'</a>
                         </div>';
                         $i+=1;
                         }
@@ -108,98 +109,8 @@
             </div>
 
             <div class="boxphai">
-                <div class="row mb">
-                    <div class="boxtitle">Tài khoản </div>
-                    <div class="boxcontent formtaikhoan">
-                        <form action="#" method="post">
-                            <div class="row mb10">
-                                Tên đăng nhập <br>
-                                <input type="text" name="user" id="">
-                            </div>
-                            <div class="row mb10">
-                                Mật khẩu <br>
-                                <input type="password" name="pass" id="">
-                            </div>
-                            <div class="row mb10">
-                                <input type="checkbox" name="" id="">Ghi nhớ tài khoản <br>
-                            </div>
-                            <div class="row mb10">
-                                <input type="submit" value="Đăng nhập">
-                            </div>
-                        </form>
-                        <li>
-                            <a href="#">Quên mật khẩu</a>
-                        </li>
-                        <li>
-                            <a href="#">Đăng ký thành viên</a>
-                        </li>
-                    </div>
-                </div>
-                <div class="row mb">
-                    <div class="boxtitle">Danh mục </div>
-                    <div class="boxcontent2 menudoc">
-                        <ul>
-                            <?php
-                                foreach ($dsdm as $dm){
-                                    extract($dm);
-                                    $linkdm="index.php?act=sanpham&iddm=".$id;
-                                    echo'<li>
-                                    <a href="'.$linkdm.'">'.$name.'</a>
-                                </li>';
-                                }
-                            ?>
-                            <!-- <li>
-                                <a href="#">Đồng hồ</a>
-                            </li>
-                            <li>
-                                <a href="#">Laptop</a>
-                            </li>
-                            <li>
-                                <a href="#">Điện thoại</a>
-                            </li>
-                            <li>
-                                <a href="#">Balo</a>
-                            </li> -->
-                        </ul>   
-                    </div>
-                    <div class="boxfooter searbox">
-                        <form action="#" method="post">
-                            <input type="text" name="" id="">
-                        </form>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="boxtitle">Top 10 yêu thích</div>
-                    <div class="row boxcontent">
-                        <?php
-                            foreach($dstop10 as $sp){
-                                extract($sp);
-                                $linksp="index.php?act=sanphamct&idsp=".$id;
-                                $img=$img_path.$img;
-                                echo '<div class="row mb10 top10">
-                                <img src="'.$img.'" alt="">
-                                <a href="'.$linksp.'">'.$name.'</a>
-                            </div>';
-                            }
-                        ?>
-                    <!-- 
-                        <div class="row mb10 top10">
-                            <img src="view/images/1002.jpg" alt="">
-                            <a href="#">Áo</a>
-                        </div>
-                        <div class="row mb10 top10">
-                            <img src="view/images/1002.jpg" alt="">
-                            <a href="#">Áo</a>
-                        </div>
-                        <div class="row mb10 top10">
-                            <img src="view/images/1002.jpg" alt="">
-                            <a href="#">Áo</a>
-                        </div>
-                        <div class="row mb10 top10">
-                            <img src="view/images/1002.jpg" alt="">
-                            <a href="#">Áo</a>
-                        </div> -->
-                    </div>
-                </div>
+                <?php
+                    include "boxright.php";
+                ?>
             </div>
         </div>

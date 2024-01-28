@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự án mẫu 2024</title>
+    <title>Dự án 1 2024</title>
     <link rel="stylesheet" href="view/css/style.css">
 </head>
 
