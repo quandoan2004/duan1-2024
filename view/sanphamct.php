@@ -4,7 +4,7 @@
             <?php
                 extract($onesp);
             ?>
-            <div class="boxtitle">Sản phẩm chi tiết</div>
+            <div class="boxtitle"><?=$name?></div>
             <div class="row boxcontent">
             <?php
                 $img=$img_path.$img;
@@ -22,7 +22,13 @@
         <div class="row mb">
             <div class="boxtitle">Sản phẩm cùng loại</div>
             <div class="row boxcontent">
-
+                <?php
+                    foreach ($sp_cung_loai as $sp_cung_loai) {
+                        extract($sp_cung_loai);
+                        $linksp="index.php?act=sanphamct&idsp=".$id;
+                        echo '<li><a href="'.$linksp.'">'.$name.'</a></li>';
+                    }
+                ?>
             </div>
         </div>
     </div>

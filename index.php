@@ -10,15 +10,26 @@
     if((isset($_GET['act']))&&($_GET['act']!="")){
         $act=$_GET['act'];
         switch ($act){
-            case 'sanphamct':
+            case 'sanpham':    
+                if (isset($_GET['iddm'])&&($_GET['iddm']>0)){
+                    $iddm=$_GET['iddm'];
+                    $dssp=loadall_sanpham("",$iddm);
+                    $tendm=load_ten_dm($iddm);
+                    include "view/sanpham.php";
+                }else{
+                    include "view/home.php";
+                }       
+                break;
+            case 'sanphamct':    
                 if (isset($_GET['idsp'])&&($_GET['idsp']>0)){
                     $id=$_GET['idsp'];
                     $onesp=loadone_sanpham($id);
+                    extract($onesp);
+                    $sp_cung_loai=load_sanpham_cungloai($id,$iddm);
                     include "view/sanphamct.php";
                 }else{
                     include "view/home.php";
-                }
-                
+                }  
                 break;
             case 'gioithieu':
                 include "view/gioithieu.php";

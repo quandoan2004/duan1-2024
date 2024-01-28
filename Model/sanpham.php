@@ -29,10 +29,21 @@
         $listsanpham = pdo_query($sql);
         return $listsanpham;
     }
+    function load_ten_dm($iddm){
+        $sql="select * from danhmuc where id=".$iddm;
+        $dm=pdo_query_one($sql);
+        extract($dm);
+        return $name ;
+    }
     function loadone_sanpham($id){
         $sql="select * from sanpham where id=".$id;
         $sp=pdo_query_one($sql);
         return $sp ;
+    }
+    function load_sanpham_cungloai($id,$iddm){
+        $sql="select * from sanpham where iddm=".$iddm." AND id <> ".$id;
+        $listsanpham = pdo_query($sql);
+        return $listsanpham;
     }
     function update_sanpham($id,$iddm,$tensp,$giasp,$mota,$hinh){
         if ($hinh!="")
