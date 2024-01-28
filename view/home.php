@@ -40,8 +40,27 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="boxsp mr">
-                        <div class="row img"><img src="view/images/1002.jpg" alt=""></div>
+                    <?php
+                        $i=0;
+                        foreach ($spnew as $sp) {
+                            extract($sp);
+                            $hinh=$img_path.$img;
+                            if(($i==2)||($i==5)||($i==8)){   
+                                $mr="mr";
+                            }else{
+                                $mr="";
+                            }
+                            echo '<div class="boxsp '.$mr.'">
+                            <div class="row img"><img src="'.$hinh.'" alt=""></div>
+                            <p>$'.$price.'</p>
+                            <a href="#">'.$name.'</a>
+                        </div>';
+                        $i+=1;
+                        }
+                    ?>
+                    <!-- 
+                        <div class="boxsp mr">
+                        <div class="row img"><img src="view/images/1003.jpg" alt=""></div>
                         <p>$30</p>
                         <a href="#">Dong ho</a>
                     </div>
@@ -50,12 +69,12 @@
                         <p>$30</p>
                         <a href="#">Dong ho</a>
                     </div>
-                    <div class="boxsp ">
+                    <div class="boxsp mr">
                         <div class="row img"><img src="view/images/1005.jpg" alt=""></div>
                         <p>$30</p>
                         <a href="#">Dong ho</a>
                     </div>
-                    <div class="boxsp mr">
+                    <div class="boxsp ">
                         <div class="row img"><img src="view/images/1001.jpg" alt=""></div>
                         <p>$30</p>
                         <a href="#">Dong ho</a>
@@ -84,7 +103,7 @@
                         <div class="row img"><img src="view/images/1001.jpg" alt=""></div>
                         <p>$30</p>
                         <a href="#">Dong ho</a>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -120,7 +139,16 @@
                     <div class="boxtitle">Danh mục </div>
                     <div class="boxcontent2 menudoc">
                         <ul>
-                            <li>
+                            <?php
+                                foreach ($dsdm as $dm){
+                                    extract($dm);
+                                    $linkdm="index.php?act=sanpham&iddm=".$id;
+                                    echo'<li>
+                                    <a href="'.$linkdm.'">'.$name.'</a>
+                                </li>';
+                                }
+                            ?>
+                            <!-- <li>
                                 <a href="#">Đồng hồ</a>
                             </li>
                             <li>
@@ -131,7 +159,7 @@
                             </li>
                             <li>
                                 <a href="#">Balo</a>
-                            </li>
+                            </li> -->
                         </ul>   
                     </div>
                     <div class="boxfooter searbox">
@@ -143,6 +171,18 @@
                 <div class="row">
                     <div class="boxtitle">Top 10 yêu thích</div>
                     <div class="row boxcontent">
+                        <?php
+                            foreach($dstop10 as $sp){
+                                extract($sp);
+                                $linksp="index.php?act=sanphamct&idsp=".$id;
+                                $img=$img_path.$img;
+                                echo '<div class="row mb10 top10">
+                                <img src="'.$img.'" alt="">
+                                <a href="'.$linksp.'">'.$name.'</a>
+                            </div>';
+                            }
+                        ?>
+                    <!-- 
                         <div class="row mb10 top10">
                             <img src="view/images/1002.jpg" alt="">
                             <a href="#">Áo</a>
@@ -158,7 +198,7 @@
                         <div class="row mb10 top10">
                             <img src="view/images/1002.jpg" alt="">
                             <a href="#">Áo</a>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
