@@ -11,14 +11,20 @@
         $act=$_GET['act'];
         switch ($act){
             case 'sanpham':    
+                if (isset($_POST['kyw'])&&($_POST['kyw']!="")){
+                    $kyw=$_POST['kyw'];
+                }else{
+                    $kyw="";
+                }
                 if (isset($_GET['iddm'])&&($_GET['iddm']>0)){
                     $iddm=$_GET['iddm'];
-                    $dssp=loadall_sanpham("",$iddm);
-                    $tendm=load_ten_dm($iddm);
-                    include "view/sanpham.php";
+                    
                 }else{
-                    include "view/home.php";
-                }       
+                    $iddm=0;
+                }   
+                $dssp=loadall_sanpham($kyw,$iddm);
+                $tendm=load_ten_dm($iddm);
+                include "view/sanpham.php";    
                 break;
             case 'sanphamct':    
                 if (isset($_GET['idsp'])&&($_GET['idsp']>0)){

@@ -53,8 +53,9 @@
                         </ul>   
                     </div>
                     <div class="boxfooter searbox">
-                        <form action="#" method="post">
-                            <input type="text" name="" id="">
+                        <form action="index.php?act=sanpham" method="post">
+                            <input type="text" name="kyw" >
+                            <input type="submit" name="timkiem" value="Tìm Kiếm">
                         </form>
                     </div>
                 </div>
