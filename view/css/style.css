@@ -133,6 +133,7 @@
 }
 
 .formtaikhoan input[type="text"],
+.formtaikhoan input[type="email"],
 .formtaikhoan input[type="password"],
 .frmcontent input[type="text"]{
     width: 100%;
@@ -145,6 +146,7 @@
 }
 .formtaikhoan input[type="submit"],
 .frmcontent input[type="submit"],
+.formtaikhoan input[type="reset"],
 .frmcontent input[type="reset"],
 .frmcontent input[type="button"]{
     border-radius: 5px;
@@ -343,4 +345,8 @@
 }
 .spct img{
     width: 50%;
+}
+.thongbao{
+    color: red;
+    font-size: 20px;
 }
