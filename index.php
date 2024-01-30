@@ -77,7 +77,20 @@ session_start();
                         header('location: index.php?act=edit_taikhoan');
                 }
                 include "view/taikhoan/edit_taikhoan.php";
-                break;    
+                break; 
+            case 'quenmk':
+                if (isset($_POST['guiemail'])&&($_POST['guiemail'])){
+                    $email=$_POST['email'];
+                     
+                    $checkemail = checkemail($email)     ;
+                    if(is_array($checkemail)){
+                        $thongbao="Mật khẩu của bạn là: ".$checkemail['pass'];
+                    }else{
+                        $thongbao="Email này không tồn tại";
+                    }
+                }
+                include "view/taikhoan/quenmk.php";
+                break;       
             case 'gioithieu':
                 include "view/gioithieu.php";
                 break;
