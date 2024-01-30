@@ -2,6 +2,7 @@
 include "../Model/pdo.php";
 include "../Model/danhmuc.php";
 include "../Model/sanpham.php";
+include "../Model/taikhoan.php";
 include "header.php";
 
 if (isset($_GET['act'])) {
@@ -88,7 +89,7 @@ if (isset($_GET['act'])) {
                     break;
             case 'suasp':
                     if(isset($_GET['id'])&&($_GET['id']>0)){
-                        $sanpham = loadone_sanpham($_GET['id']);
+                        $sanpham=loadone_sanpham($_GET['id']);
     
                     }
                     $listdanhmuc=loadall_danhmuc();
@@ -116,7 +117,10 @@ if (isset($_GET['act'])) {
                     $listsanpham=loadall_sanpham();
                     include "sanpham/list.php";
                     break;    
-            
+            case 'dskh':             
+                    $listtaikhoan=loadall_taikhoan();
+                    include "taikhoan/list.php";
+                    break;
             
             default:
                 include "home.php";

@@ -90,7 +90,11 @@ session_start();
                     }
                 }
                 include "view/taikhoan/quenmk.php";
-                break;       
+                break;   
+            case 'thoat':
+                session_unset();
+                header('loaction: index.php');
+                break;    
             case 'gioithieu':
                 include "view/gioithieu.php";
                 break;
