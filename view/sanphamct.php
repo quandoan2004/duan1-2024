@@ -13,11 +13,17 @@
             ?>
             </div>
         </div>
-        <div class="row mb ">
-            <div class="boxtitle">Binh luận</div>
-            <div class="row boxcontent">
-
-            </div>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+            $("#binhluan").load("view/binhluan/binhluanform.php", {idpro: <?=$id?>});
+            });
+        </script>
+        <div class="row" id="binhluan"> -->
+            
+        <!-- </div> -->
+        <div class="row" >
+            <iframe src="view/binhluan/binhluanform.php?idpro=<?=$id?>" frameborder="0" width="100%" height="300px"></iframe>
         </div>
         <div class="row mb">
             <div class="boxtitle">Sản phẩm cùng loại</div>

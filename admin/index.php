@@ -3,6 +3,7 @@ include "../Model/pdo.php";
 include "../Model/danhmuc.php";
 include "../Model/sanpham.php";
 include "../Model/taikhoan.php";
+include "../Model/binhluan.php";
 include "header.php";
 
 if (isset($_GET['act'])) {
@@ -121,7 +122,10 @@ if (isset($_GET['act'])) {
                     $listtaikhoan=loadall_taikhoan();
                     include "taikhoan/list.php";
                     break;
-            
+            case 'dsbl':             
+                    $listbinhluan=loadall_binhluan(0);
+                    include "binhluan/list.php";
+                    break;
             default:
                 include "home.php";
                 break;
