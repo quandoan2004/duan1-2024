@@ -32,7 +32,7 @@ function pdo_execute($sql){
     }
 }
 //Lấy ID của bản ghi được chèn cuối cùng
-function pdo_execute_lastid($sql){
+function pdo_execute_return_lastInsertId($sql){
     $sql_args = array_slice(func_get_args(), 1);
     try{
         $conn = pdo_get_connection();

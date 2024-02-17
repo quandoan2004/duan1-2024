@@ -1,9 +1,12 @@
 <?php
+session_start();
+if(isset($_SESSION['user'])&&($_SESSION['user']['role']==1)){
 include "../Model/pdo.php";
 include "../Model/danhmuc.php";
 include "../Model/sanpham.php";
 include "../Model/taikhoan.php";
 include "../Model/binhluan.php";
+include "../Model/cart.php";
 include "header.php";
 
 if (isset($_GET['act'])) {
@@ -126,6 +129,15 @@ if (isset($_GET['act'])) {
                     $listbinhluan=loadall_binhluan(0);
                     include "binhluan/list.php";
                     break;
+            case 'listbill': 
+                    if(isset($_POST['kyw'])&&($_POST['kyw']!="")){
+                        $kyw=$_POST['kyw'];
+                    }else{
+                        $kyw="";
+                    }            
+                    $listbill=loadall_bill($kyw,0);
+                    include "bill/listbill.php";
+                    break;
             default:
                 include "home.php";
                 break;
@@ -135,3 +147,7 @@ if (isset($_GET['act'])) {
 }
 
 include "footer.php";
+
+}else{
+    header('location:../index.php');
+}

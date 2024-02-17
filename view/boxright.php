@@ -10,6 +10,9 @@
                                 <?=$user?>
                             </div>
                     <div class="row mb10">
+                    <li>
+                            <a href="index.php?act=mybill">Đơn hàng của tôi</a>
+                        </li>
                             <li>
                             <a href="index.php?act=quenmk">Quên mật khẩu</a>
                         </li>
