@@ -45,7 +45,7 @@
                 </div>
                 </div>
                 <div class="row mb">
-                    <div class="boxtitle">Chi tiết giỏ hàng</div>
+                    <div class="boxtitle">THÔNG TIN GIỎ Hàng</div>
                     <div class="row boxcontent cart">
                         <table>
                             <?php

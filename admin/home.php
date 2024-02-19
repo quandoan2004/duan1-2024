@@ -1,1 +1,1 @@
-<h1>Control Panel</h1>
+<h1>Xin chào admin</h1>

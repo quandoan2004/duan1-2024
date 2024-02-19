@@ -12,13 +12,13 @@ function viewcart($del)
         $xoasp_td2 = '';
     }
     echo '<tr>
-        <th>Hình</th>
-        <th>Sản phẩm</th>
-        <th>Đơn giá</th>
-        <th>Số lượng</th>
-        <th>Thành tiền</th>
-        ' . $xoasp_th . '
-    </tr>';
+            <th>Hình</th>
+            <th>Sản phẩm</th>
+            <th>Đơn giá </th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            ' . $xoasp_th . '
+            </tr>';
     foreach ($_SESSION['mycart'] as $cart) {
         $hinh = $img_path . $cart[2];
         $ttien = $cart[3] * $cart[4];
@@ -26,24 +26,24 @@ function viewcart($del)
         if ($del == 1) {
             $xoasp_td = '<td><a href="index.php?act=delcart&idcart=' . $i . '"><input type="button" value="Xóa"></a></td>';
         } else {
-            $xoasp_td = '';;
+            $xoasp_td = '';
         }
         echo '
-            <tr style="text-align: center;">
+            <tr>
                 <td><img src="' . $hinh . '" alt="" height="80px"></td>
                 <td>' . $cart[1] . '</td>
                 <td>' . $cart[3] . '</td>
-                <td><input style="padding: 5px;" min="1" type="number" name="qty[' . $cart[0] . ']" id="" value="' . $cart[4] . '"></td>
-                <td>' . $ttien . 'đ</td>
+                <td>' . $cart[4] . '</td>
+                <td>' . $ttien . '</td>
                 ' . $xoasp_td . '
-                </tr>';
+            </tr>';
         $i += 1;
     }
     echo '<tr>
-                        <td colspan="4">Tổng đơn hàng</td>
-                        <td>' . $tong . 'đ</td>
-                        ' . $xoasp_td2 . '
-                        </tr>';
+                <td colspan="4">Tổng đơn hàng</td>
+                <td>' . $tong . '</td>
+                ' . $xoasp_td2 . '
+        </tr>';
 }
 function bill_chi_tiet($listbill)
 {
@@ -91,7 +91,7 @@ function insert_bill($iduser, $name, $email, $address, $tel, $pttt, $ngaydathang
 }
 function insert_cart($iduser, $idpro, $img, $name, $price, $soluong, $thanhtien, $idbill)
 {
-    $sql = "insert into cart(iduser, idpro, img, name, price, soluong, thanhtien, idbill) values ('$iduser', '$idpro', '$img', '$name', '$price', '$soluong','$thanhtien',$idbill)";
+    $sql = "insert into cart(iduser, idpro, img, name, price, soluong, thanhtien, idbill) values ('$iduser', '$idpro', '$img', '$name', '$price', '$soluong','$thanhtien, $idbill')";
     return pdo_execute($sql);
 }
 function loadone_bill($id)
@@ -114,18 +114,12 @@ function loadall_cart_count($idbill)
 }
 function loadall_bill($kyw, $iduser = 0)
 {
-    $sql = "select * from bill where 1 ";
+    $sql = "select * from bill";
     if ($iduser > 0) $sql .= " AND iduser=" . $iduser;
-    if ($kyw != "") $sql .= " AND iduser Like '%" . $kyw . "%'";
+    if ($kyw != "") $sql .= " AND id Like '%" . $kyw . "%'";
     $sql .= " order by id desc";
-    // var_dump($sql);die();
     $listbill = pdo_query($sql);
     return $listbill;
-}
-function update_bill($id, $status)
-{
-    $sql = "update bill set bill_status = {$status} where id = {$id}";
-    return pdo_query($sql);
 }
 function get_ttdh($n)
 {
@@ -148,12 +142,4 @@ function get_ttdh($n)
             break;
     }
     return $tt;
-}
-function loadall_thongke()
-{
-    $sql = "select danhmuc.id as madm, danhmuc.name as tendm, count(sanpham.id) as countsp, min(sanpham.price) as minprice, max(sanpham.price) as maxprice, avg(sanpham.price) as avgprice";
-    $sql .= "from sanpham left join danhmuc on danhmuc.id=sanpham.iddm";
-    $sql .= "group by danhmuc.id order by danhmuc.id desc";
-    $listthongke = pdo_query($sql);
-    return $listthongke;
 }
