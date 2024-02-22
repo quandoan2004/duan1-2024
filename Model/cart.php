@@ -100,6 +100,14 @@ function loadone_bill($id)
     $bill = pdo_query_one($sql);
     return $bill;
 }
+function loadone_detailbill($id)
+{
+    $sql = "SELECT cart.*, bill.bill_address, bill.bill_status FROM cart
+    INNER JOIN bill ON cart.idbill = bill.id
+    WHERE cart.idbill = " . $id;
+    $bill = pdo_query($sql);
+    return $bill;
+}
 function loadall_cart($idbill)
 {
     $sql = "select * from cart where idbill=" . $idbill;
@@ -116,7 +124,7 @@ function loadall_bill($kyw, $iduser = 0)
 {
     $sql = "select * from bill where 1 ";
     if ($iduser > 0) $sql .= " AND iduser=" . $iduser;
-    if ($kyw != "") $sql .= " AND iduser Like '%" . $kyw . "%'";
+    if ($kyw != "") $sql .= " AND id Like '%" . $kyw . "%'";
     $sql .= " order by id desc";
     // var_dump($sql);die();
     $listbill = pdo_query($sql);

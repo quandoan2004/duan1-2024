@@ -17,7 +17,7 @@
                     <th>Giá trị đơn hàng</th>
                     <th>Tình trạng đơn hàng</th>
                     <th>Ngày đặt hàng</th>
-                    <th>Thao tác</th>
+                    <th colspan="2">Thao tác</th>
                 </tr>
                 <?php
                 foreach ($listbill as $bill) {
@@ -36,7 +36,8 @@
                                 <td><strong>' . $bill["total"] . '</strong> VNĐ</td>
                                 <td>' . $ttdh . '</td>
                                 <td>' . $bill["ngaydathang"] . '</td>
-                                <td><a href="index.php?act=editbill&id=' . $bill['id'] . '"><input type="button" value="Sửa"></a><input type="button" value="Xóa"></td>
+                                <td><a href="index.php?act=editbill&id=' . $bill['id'] . '"><input type="button" value="Sửa"></a></td>
+                                <td><a href="index.php?act=detailbill&id=' . $bill['id'] . '"><input type="button" value="Chi tiết"></a></td>
                             </tr>';
                 }
                 ?>

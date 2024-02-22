@@ -11,6 +11,7 @@
                             <th>Số lượng mặt hàng</th>
                             <th>Tổng giá trị đơn hàng</th>
                             <th>Tình trạng đơn hàng</th>
+                            <th>Thao tác</th>
                         </tr>
                         <?php
                         if (is_array($listbill)) {
@@ -25,6 +26,7 @@
                             <td>' . $countsp . '</td>
                             <td>' . $bill['total'] . '</td>
                             <td>' . $ttdh . '</td>
+                            <td><a href="index.php?act=detailbill&id=' . $bill['id'] . '"><input type="button" value="Chi tiết"></a></td>
                         </tr>';
                             }
                         }

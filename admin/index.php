@@ -154,6 +154,13 @@ if (isset($_SESSION['user']) && ($_SESSION['user']['role'] == 1)) {
                 }
                 header("Location: index.php?act=listbill");
                 break;
+            case "detailbill":
+                if (isset($_GET['id'])) {
+                    $idbill = $_GET['id'];
+                    $detailbill = loadone_detailbill($idbill);
+                }
+                include "bill/detail.php";
+                break;
             default:
                 include "home.php";
                 break;

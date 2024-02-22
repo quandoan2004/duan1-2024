@@ -3,7 +3,6 @@
 
 <head>
     <meta charset="UTF-8">
-    <base href="http://localhost/PHP/Duanmau2024/">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dự án 1 2024</title>
     <link rel="stylesheet" href="view/css/style.css">

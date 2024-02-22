@@ -164,8 +164,14 @@ if ((isset($_GET['act'])) && ($_GET['act'] != "")) {
         case 'mybill':
             $listbill = loadall_bill($_SESSION['user']['id']);
             // var_dump($listbill);die();
-
             include "view/cart/mybill.php";
+            break;
+        case "detailbill":
+            if (isset($_GET['id'])) {
+                $idbill = $_GET['id'];
+                $detailbill = loadone_detailbill($idbill);
+            }
+            include "view/cart/detailbill.php";
             break;
         case 'gioithieu':
             include "view/gioithieu.php";
